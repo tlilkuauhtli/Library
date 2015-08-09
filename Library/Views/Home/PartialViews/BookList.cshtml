@@ -1,0 +1,34 @@
+﻿@model Library.Models.Entities.BookList
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table" border="1">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Author</th>
+            <th>Category</th>
+        </tr>
+        @for (int index = 0; index < Model.Books.Count; index++)
+        {
+            <tr>
+                <td>@Model.Books[index].Id </td>
+                <td>@Model.Books[index].Name </td>
+                <td>@Model.Books[index].AuthorName </td>
+                <td>@Model.Books[index].CategoryName </td>
+            </tr>
+        }
+
+        @*@foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                </td>
+            </tr>
+        }*@
+
+    </table>
