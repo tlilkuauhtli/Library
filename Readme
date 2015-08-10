@@ -1,0 +1,11 @@
+1. SQL Scripts are inside Library/Scripts/SQL.
+2. Open DBScript if you want to change the FILENAME.
+3. Execute DBScript.sql First, to create DB, tables and SP.
+4. Execute LoadData.sql to fill tables.
+5. The main proyect is Library.
+6. Change String Connection in Web.config.
+
+
+Notes: 
+MVC Project was develop using VS Community 2015.
+SQL Server 2012 was used as DBEngine.
