@@ -14,6 +14,14 @@ namespace Library.DataAccess
         #endregion
 
         #region Methods
+        /// <summary>
+        /// Get book list base on the filter data and order
+        /// </summary>
+        /// <param name="bookName">Book name filter</param>
+        /// <param name="authorName">Author name filter</param>
+        /// <param name="category">Category filter</param>
+        /// <param name="order">Order</param>
+        /// <returns>List of books</returns>
         public DataTable GetBookList(string bookName, string authorName, string category, int order)
         {
             SqlCommand cmd = new SqlCommand("SP_SearchBooks", GetConnection()) { CommandType = CommandType.StoredProcedure };
