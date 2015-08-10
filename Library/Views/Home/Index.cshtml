@@ -1,0 +1,67 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+@section JS {
+    $(document).ready(function(){
+        $("#filter #search").click(function(){
+            $("#filter #send").click();
+        });
+
+    $(document).on('click', "span.order", function(){
+        if($(this).hasClass('dropup')){
+            $(this).removeClass('dropup');
+            @*$(this).children("label").text("0");*@
+        }
+        else{
+            $(this).addClass('dropup');
+            @*$(this).children("label").text("1");*@
+        }
+    var order = 1;
+    if($(this).attr('id') == "BN")
+        order = 1;
+    if($(this).attr('id') == "AN")
+        order = 2;
+    if($(this).attr('id') == "CA")
+        order = 3;
+
+        @*var binary = $("label[for='lblC']").text() + $("label[for='lblAN']").text() + $("label[for='lblBN']").text();
+        var order = parseInt(binary, 2);*@
+        $("#order").val(order);
+        $("#order").text(order);
+        $("#filter #send").click();
+    });
+
+
+    });
+    }
+<h2 class="page-header">Search Box</h2>
+
+<div id="searchBox">
+    <div class="title" align="left">@*<h3>Search Box</h3>*@</div>
+    <div id="filter">
+        @using (Ajax.BeginForm("Index", new AjaxOptions() { UpdateTargetId = "result" }))
+            {
+                <div class="form-group">
+                    @Html.TextBox("bookName", null, new { Class = "form-control", placeholder = "Book Name" })
+                </div>
+                <div class="form-group">
+                    @Html.TextBox("author", null, new { Class = "form-control", placeholder = "Author" })
+                </div>
+                <div class="form-group">
+                    @Html.TextBox("category", null, new { Class = "form-control", placeholder = "Category" })
+                </div>
+                <div class="form-group">
+                    @Html.TextBox("order", "1", new { Class = "hide" })
+                </div>
+
+                <input type="button" id="search" name="search" value="Search" class="btn btn-lg btn-primary" />
+                <input type="submit" id="send" name="send" value="Send" class="hide" />
+            }
+        
+
+    </div>
+
+</div>
+<div id="result"></div>
