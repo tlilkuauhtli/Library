@@ -2,7 +2,7 @@
 2. Open DBScript if you want to change the FILENAME.
 3. Execute DBScript.sql First, to create DB, tables and SP.
 4. Execute LoadData.sql to fill tables.
-5. The main proyect is Library.
+5. The main project is Library.
 6. Change String Connection in Web.config.
 
 
